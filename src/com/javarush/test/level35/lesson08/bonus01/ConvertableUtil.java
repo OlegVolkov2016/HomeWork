@@ -6,8 +6,11 @@ import java.util.Map;
 
 public class ConvertableUtil {
 
-    public static Map convert(List list) {
+    public static Map convert(List<? extends Convertable> list) {
         Map result = new HashMap();
+        for (Convertable element : list) {
+            result.put(element.getKey(), element);
+        }
         return result;
     }
 }

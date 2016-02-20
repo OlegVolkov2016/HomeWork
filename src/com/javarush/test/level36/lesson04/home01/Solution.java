@@ -12,27 +12,27 @@ import java.util.List;
 */
 public class Solution {
     public static void main(String[] args) {
-        new Solution().fireEventShowData();
+        new View().fireEventShowData();
     }
 
-    public List<String> getData() {
-        List<String> data = new ArrayList<String>() {{
-            add("First string");
-            add("Second string");
-            add("Third string");
-        }};
-        return data;
-    }
+//    public List<String> getData() {
+//        List<String> data = new ArrayList<String>() {{
+//            add("First string");
+//            add("Second string");
+//            add("Third string");
+//        }};
+//        return data;
+//    }
 
-    public void fireEventShowData() {
-        System.out.println(onDataListShow());
-    }
+//    public void fireEventShowData() {
+//        System.out.println(onDataListShow());
+//    }
 
-    public List<String> getStringDataList() {
-        return getData();
-    }
+//    public List<String> getStringDataList() {
+//        return getData();
+//    }
 
-    public List<String> onDataListShow() {
-        return getStringDataList();
-    }
+//    public List<String> onDataListShow() {
+//        return getStringDataList();
+//    }
 }

@@ -1,7 +1,5 @@
 package com.javarush.test.level34.lesson08.task01;
 
-import com.javarush.test.level14.lesson08.home09.Money;
-
 import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;
 import java.util.ArrayList;
@@ -23,7 +21,6 @@ public class Solution {
     public static void main(String args[]) throws InterruptedException {
         helper.startTime();
         List<PhantomReference<Monkey>> list = helper.getFilledList();
-        System.out.println(list.size());
 
         //before GC
         helper.checkListWithReferences(list, "before");
@@ -64,6 +61,9 @@ public class Solution {
                 List<Solution> heap = new ArrayList<Solution>(100000);
                 while (true) {
                     heap.add(new Solution());
+                    if (heap.size() % 10000000 == 0) {
+                        throw new OutOfMemoryError();
+                    }
                 }
             } catch (OutOfMemoryError e) {
                 System.out.println("Out of memory error raised");
@@ -82,10 +82,12 @@ public class Solution {
         }
 
         public List<PhantomReference<Monkey>> getFilledList() {
+            ReferenceQueue<Monkey> queue = new ReferenceQueue<Monkey>();
             ArrayList<PhantomReference<Monkey>> list = new ArrayList<PhantomReference<Monkey>>();
-            for (int i = 0; i < 200; i++) {
+            for ( int i = 0; i < 200; i++)
+            {
                 Monkey monkey = new Monkey();
-                list.add(new PhantomReference<Monkey>(monkey, helper.getQueue()));
+                list.add(new PhantomReference<Monkey>(monkey, queue));
             }
             return list;
         }

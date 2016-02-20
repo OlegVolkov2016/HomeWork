@@ -10,13 +10,21 @@ import java.util.ListIterator;
 */
 public class Solution {
 
-    public static <D, H extends D, S extends H> void add(List<D> destinationList, List<S> sourceList) {
-        ListIterator<D> destListIterator = destinationList.listIterator();
-        ListIterator<S> srcListIterator = sourceList.listIterator();
+    public static <D> void add(List<? super D> destinationList, List<? extends D> sourceList) {
+        ListIterator<? super D> destListIterator = destinationList.listIterator();
+        ListIterator<? extends D> srcListIterator = sourceList.listIterator();
         for (int i = 0; i < sourceList.size(); i++) {
             destListIterator.add(srcListIterator.next());
         }
     }
+
+//    public static <D, H extends D, S extends H> void add(List<D> destinationList, List<S> sourceList) {
+//        ListIterator<D> destListIterator = destinationList.listIterator();
+//        ListIterator<S> srcListIterator = sourceList.listIterator();
+//        for (int i = 0; i < sourceList.size(); i++) {
+//            destListIterator.add(srcListIterator.next());
+//        }
+//    }
 
 
     public static void main(String[] args) {

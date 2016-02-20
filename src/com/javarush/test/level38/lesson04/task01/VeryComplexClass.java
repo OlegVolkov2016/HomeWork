@@ -8,6 +8,6 @@ package com.javarush.test.level38.lesson04.task01;
 
 public class VeryComplexClass {
     public void veryComplexMethod() throws Exception {
-        //напишите тут ваш код
+        int i = 25/0;
     }
 }

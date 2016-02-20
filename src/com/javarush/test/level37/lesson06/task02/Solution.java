@@ -1,5 +1,6 @@
 package com.javarush.test.level37.lesson06.task02;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -53,6 +54,6 @@ text 1
     }
 
     public static Map getExpectedMap() {
-        return new TreeMap();
+        return new HashMap();
     }
 }

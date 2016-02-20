@@ -11,44 +11,46 @@ import java.io.IOException;
 
 public class Solution {
     public void printFile1() throws IOException {
-        FileInputStream fileInputStream = null;
+//        FileInputStream fileInputStream = null;
 
-        try {
-            fileInputStream = new FileInputStream("file.txt");
+        try (FileInputStream fileInputStream = new FileInputStream("file.txt")) {
+//            fileInputStream = new FileInputStream("file.txt");
 
             int data = fileInputStream.read();
             while (data != -1) {
                 System.out.println(data);
                 data = fileInputStream.read();
             }
-        } finally {
-            if (fileInputStream != null) {
-                fileInputStream.close();
-            }
         }
+//        finally {
+//            if (fileInputStream != null) {
+//                fileInputStream.close();
+//            }
+//        }
     }
 
     public void printFile2() throws IOException {
-        FileInputStream fileInputStream = null;
-        BufferedInputStream bufferedInputStream = null;
-        try {
-            fileInputStream = new FileInputStream("file.txt");
-            bufferedInputStream = new BufferedInputStream(fileInputStream);
-
+//        FileInputStream fileInputStream = null;
+//        BufferedInputStream bufferedInputStream = null;
+        try (FileInputStream fileInputStream = new FileInputStream("file.txt");
+             BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream)) {
+//            fileInputStream = new FileInputStream("file.txt");
+//            bufferedInputStream = new BufferedInputStream(fileInputStream);
 
             int data = bufferedInputStream.read();
             while (data != -1) {
                 System.out.println(data);
                 data = bufferedInputStream.read();
             }
-        } finally {
-            if (fileInputStream != null) {
-                fileInputStream.close();
-            }
-
-            if (bufferedInputStream != null) {
-                bufferedInputStream.close();
-            }
         }
+//        finally {
+//            if (fileInputStream != null) {
+//                fileInputStream.close();
+//            }
+//
+//            if (bufferedInputStream != null) {
+//                bufferedInputStream.close();
+//            }
+//        }
     }
 }

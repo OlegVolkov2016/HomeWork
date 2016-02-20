@@ -1,5 +1,6 @@
 package com.javarush.test.level37.lesson06.task03;
 
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -31,7 +32,7 @@ map does NOT contain the value for key = null
     }
 
     public static Map getExpectedMap() {
-        return new Hashtable();
+        return new HashMap();
     }
 
     public static void checkObject(Map map, Object key) {

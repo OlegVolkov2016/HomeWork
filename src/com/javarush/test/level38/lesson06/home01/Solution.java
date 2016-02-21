@@ -18,8 +18,37 @@ package com.javarush.test.level38.lesson06.home01;
 Энумы не меняйте.
 */
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 public class Solution {
     public static Class getFactoryClass() {
-        return null;
+        return ExceptionFactory.class;
+    }
+
+    public static void main(String[] args) {
+        try
+        {
+            Class factoryClass = getFactoryClass();
+            Method factoryMethod = factoryClass.getMethod("getException", java.lang.Enum.class);
+            throw (Throwable) factoryMethod.invoke(factoryClass, null);
+//            throw (Throwable) factoryMethod.invoke(factoryClass, ExceptionApplicationMessage.UNHANDLED_EXCEPTION);
+//            throw (Throwable) factoryMethod.invoke(factoryClass, ExceptionApplicationMessage.SOCKET_IS_CLOSED);
+//            throw (Throwable) factoryMethod.invoke(factoryClass, ExceptionDBMessage.NOT_ENOUGH_CONNECTIONS);
+//            throw (Throwable) factoryMethod.invoke(factoryClass, ExceptionDBMessage.RESULT_HAS_NOT_GOTTEN_BECAUSE_OF_TIMEOUT);
+//            throw (Throwable) factoryMethod.invoke(factoryClass, ExceptionUserMessage.USER_DOES_NOT_EXIST);
+//            throw (Throwable) factoryMethod.invoke(factoryClass, ExceptionUserMessage.USER_DOES_NOT_HAVE_PERMISSIONS);
+        }
+        catch (IllegalAccessException e)
+        {
+            e.printStackTrace();
+        }
+        catch (InvocationTargetException e)
+        {
+            e.printStackTrace();
+        }
+        catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 }

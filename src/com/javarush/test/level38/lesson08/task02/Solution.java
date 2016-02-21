@@ -9,33 +9,35 @@ import java.util.List;
 Исправь неверные аннотации. Код должен компилировался без ошибок и предупреждений.
 */
 
-@Target(ElementType.TYPE)
+@Target(ElementType.METHOD)
 @interface Main {
 }
 
 public class Solution {
-//    @Main
-//    public static void main(String[] args) {
-//        Solution solution = new Solution().new SubSolution();
-//        solution.overriddenMethod();
-//    }
-//
-//    public void overriddenMethod() {
-//    }
-//
-//    public class SubSolution extends Solution {
-//        @SafeVarargs
-//        public void overriddenMethod() {
-//            System.out.println(uncheckedCall());
-//        }
-//
-//        @Override
-//        List uncheckedCall() {
-//            List list = new ArrayList();
-//            list.add("hello");
-//            return list;
-//        }
-//    }
+
+    @Main
+    public static void main(String[] args) {
+        Solution solution = new Solution().new SubSolution();
+        solution.overriddenMethod();
+    }
+
+
+    public void overriddenMethod() {
+    }
+
+    public class SubSolution extends Solution {
+        @Override
+        public void overriddenMethod() {
+            System.out.println(uncheckedCall());
+        }
+
+        @SuppressWarnings("unchecked")
+        List uncheckedCall() {
+            List list = new ArrayList();
+            list.add("hello");
+            return list;
+        }
+    }
 
 
 }

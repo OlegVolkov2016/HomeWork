@@ -26,7 +26,7 @@ public class Solution {
     }
 
     public static void main(String[] args) throws ClassNotFoundException {
-        Solution solution = new Solution("I:\\IDEA\\JavaRushHomeWork\\src\\com\\javarush\\test\\level36\\lesson10\\bonus01\\data\\second");
+        Solution solution = new Solution("I:\\IDEA\\JavaRushHomeWork\\out\\production\\JavaRushHomeWork\\com\\javarush\\test\\level36\\lesson10\\bonus01\\data\\second");
         solution.scanFileSystem();
         System.out.println(solution.getHiddenClassObjectByKey("hiddenclassimplse"));
         System.out.println(solution.getHiddenClassObjectByKey("hiddenclassimplf"));

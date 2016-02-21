@@ -5,24 +5,38 @@ package com.javarush.test.level38.lesson08.task01;
 Не должно быть избыточности.
 */
 
-public class Solution {
-
+@SuppressWarnings("all")
+@Deprecated
+public class Solution
+{
+    @Deprecated
     private String[] arguments;
 
-    public Solution(String... arguments) {
+    @Deprecated
+    @SafeVarargs
+    public Solution(@Deprecated String... arguments)
+    {
         this.arguments = arguments;
     }
 
-    public void voidMethod() throws Exception {
+    @Deprecated
+    public void voidMethod() throws Exception
+    {
     }
 
-    public static void main(String[] args) throws Exception {
+    @Deprecated
+    public static void main(@Deprecated String[] args) throws Exception
+    {
         new Solution().new SubSolution().voidMethod();
     }
 
-    class SubSolution extends Solution {
-
-        public void voidMethod() throws Exception {
+    @Deprecated
+    class SubSolution extends Solution
+    {
+        @Override
+        @Deprecated
+        public void voidMethod() throws Exception
+        {
             super.voidMethod();
         }
     }

@@ -18,11 +18,9 @@ public class Solution {
 
     public void sendPost(URL url, String urlParameters) throws Exception {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        System.out.println("1");
 
         connection.setRequestMethod("POST");
         connection.setRequestProperty("User-Agent", "Mozilla/5.0");
-        System.out.println("2");
 
         connection.setDoOutput(true);
         connection.setDoInput(true);
@@ -30,21 +28,26 @@ public class Solution {
         OutputStream outputStream = connection.getOutputStream();
         outputStream.write(urlParameters.getBytes());
         outputStream.flush();
-        System.out.println("3");
 
         int responseCode = connection.getResponseCode();
         System.out.println("Response Code: " + responseCode);
-        System.out.println("4");
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-        String responseLine;
-        StringBuilder response = new StringBuilder();
+        if (responseCode == HttpURLConnection.HTTP_OK)
+        {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            String responseLine;
+            StringBuilder response = new StringBuilder();
 
-        while ((responseLine = bufferedReader.readLine()) != null) {
-            response.append(responseLine);
+            while ((responseLine = bufferedReader.readLine()) != null)
+            {
+                response.append(responseLine);
+            }
+            bufferedReader.close();
+
+            System.out.println("Response: " + response.toString());
         }
-        bufferedReader.close();
-
-        System.out.println("Response: " + response.toString());
+        else {
+            System.out.println("Response: " + "");
+        }
     }
 }

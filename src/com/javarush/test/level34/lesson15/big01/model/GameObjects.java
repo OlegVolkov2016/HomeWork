@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Олег Волков on 14.02.2016.
+ * Created by Олег Волков on 28.02.2016.
  */
 public class GameObjects
 {
@@ -51,3 +51,4 @@ public class GameObjects
         return player;
     }
 }
+

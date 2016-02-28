@@ -5,11 +5,8 @@ import com.javarush.test.level34.lesson15.big01.model.GameObjects;
 import com.javarush.test.level34.lesson15.big01.model.Model;
 import com.javarush.test.level34.lesson15.big01.view.View;
 
-import java.io.File;
-import java.nio.file.Paths;
-
 /**
- * Created by Олег Волков on 14.02.2016.
+ * Created by Олег Волков on 28.02.2016.
  */
 public class Controller implements EventListener
 {
@@ -63,3 +60,4 @@ public class Controller implements EventListener
         return model.getGameObjects();
     }
 }
+

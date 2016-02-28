@@ -1,6 +1,10 @@
 package com.javarush.test.level36.lesson08.task01;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Set;
+import java.util.TreeSet;
 
 /* Использование TreeSet
 Первым параметром приходит имя файла: файл1.
@@ -26,5 +30,26 @@ abc
 */
 public class Solution {
     public static void main(String[] args) throws IOException {
+        if (args.length > 0) {
+            Set<Character> chars = new TreeSet<>();
+            BufferedReader reader = new BufferedReader(new FileReader(args[0]));
+            char[] line;
+            while (reader.ready()) {
+                line = reader.readLine().toLowerCase().toCharArray();
+                for (int i = 0; i < line.length; i++) {
+                    if (line[i] >= 'a' && line[i] <= 'z') {
+                        chars.add(line[i]);
+                    }
+                }
+            }
+            reader.close();
+            int count = 0;
+            for (Character c : chars) {
+                System.out.print(c);
+                if (++count == 5) {
+                    break;
+                }
+            }
+        }
     }
 }

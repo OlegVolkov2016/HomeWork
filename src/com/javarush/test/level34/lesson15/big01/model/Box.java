@@ -3,7 +3,7 @@ package com.javarush.test.level34.lesson15.big01.model;
 import java.awt.*;
 
 /**
- * Created by Олег Волков on 14.02.2016.
+ * Created by Олег Волков on 28.02.2016.
  */
 public class Box extends CollisionObject implements Movable
 {
@@ -18,10 +18,12 @@ public class Box extends CollisionObject implements Movable
         graphics.setColor(Color.ORANGE);
         int leftUpperCornerX = getX() - getWidth() / 2;
         int leftUpperCornerY = getY() - getHeight() / 2;
-        int rightUpperCornerX = getX() + getWidth() / 2;
+//        int leftUpperCornerX = getX();
+//        int leftUpperCornerY = getY();
+        int rightUpperCornerX = leftUpperCornerX + getWidth();
         int rightUpperCornerY = leftUpperCornerY;
         int leftLowerCornerX = leftUpperCornerX;
-        int leftLowerCornerY = getY() + getHeight() / 2;
+        int leftLowerCornerY = leftUpperCornerY + getHeight();
         int rightLowerCornerX = rightUpperCornerX;
         int rightLowerCornerY = leftLowerCornerY;
         graphics.drawRect(leftUpperCornerX, leftUpperCornerY, getWidth(), getHeight());

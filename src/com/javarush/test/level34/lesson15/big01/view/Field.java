@@ -10,11 +10,11 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 /**
- * Created by Олег Волков on 14.02.2016.
+ * Created by Олег Волков on 28.02.2016.
  */
 public class Field extends JPanel
 {
-    private com.javarush.test.level34.lesson15.big01.controller.EventListener eventListener;
+    private EventListener eventListener;
     private View view;
     public Field(View view) {
         this.view = view;

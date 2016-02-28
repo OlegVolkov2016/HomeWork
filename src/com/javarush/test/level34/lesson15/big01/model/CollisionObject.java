@@ -1,7 +1,7 @@
 package com.javarush.test.level34.lesson15.big01.model;
 
 /**
- * Created by Олег Волков on 14.02.2016.
+ * Created by Олег Волков on 28.02.2016.
  */
 public abstract class CollisionObject extends GameObject
 {

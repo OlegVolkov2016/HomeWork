@@ -3,7 +3,7 @@ package com.javarush.test.level34.lesson15.big01.model;
 import java.awt.*;
 
 /**
- * Created by Олег Волков on 14.02.2016.
+ * Created by Олег Волков on 28.02.2016.
  */
 public class Player extends CollisionObject implements Movable
 {
@@ -18,6 +18,8 @@ public class Player extends CollisionObject implements Movable
         graphics.setColor(Color.YELLOW);
         int leftUpperCornerX = getX() - getWidth() / 2;
         int leftUpperCornerY = getY() - getHeight() / 2;
+//        int leftUpperCornerX = getX();
+//        int leftUpperCornerY = getY();
         graphics.drawOval(leftUpperCornerX, leftUpperCornerY, getWidth(), getHeight());
         graphics.fillOval(leftUpperCornerX, leftUpperCornerY, getWidth(), getHeight());
     }
@@ -29,3 +31,4 @@ public class Player extends CollisionObject implements Movable
         this.setY(this.getY() + y);
     }
 }
+

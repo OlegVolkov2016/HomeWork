@@ -10,13 +10,19 @@ import java.util.List;
  * Created by Олег Волков on 07.02.2016.
  */
 public class Order {
-    private List<Dish> dishes;
+    protected List<Dish> dishes;
     private Tablet tablet;
 
     public Order(Tablet tablet) throws IOException
     {
-        this.dishes = ConsoleHelper.getAllDishesForOrder();
+//        this.dishes = ConsoleHelper.getAllDishesForOrder();
         this.tablet = tablet;
+        initDishes();
+    }
+
+    protected void initDishes() throws IOException
+    {
+        this.dishes = ConsoleHelper.getAllDishesForOrder();
     }
 
     @Override
@@ -39,4 +45,16 @@ public class Order {
     public boolean isEmpty() {
         return dishes == null || dishes.isEmpty();
     }
+
+    public List<Dish> getDishes()
+    {
+        return dishes;
+    }
+
+    public Tablet getTablet()
+    {
+        return tablet;
+    }
+
+
 }

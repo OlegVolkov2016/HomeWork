@@ -38,40 +38,23 @@ public class LevelLoader {
                 String line = reader.readLine();
                 for (int j = 0; j < x; j++)
                 {
-//                    switch (line.charAt(j))
-//                    {
-//                        case 'X':
-//                            walls.add(new Wall((Model.FIELD_SELL_SIZE / 2) + (j * Model.FIELD_SELL_SIZE), (Model.FIELD_SELL_SIZE / 2) + (i * Model.FIELD_SELL_SIZE)));
-//                            break;
-//                        case '*':
-//                            boxes.add(new Box((Model.FIELD_SELL_SIZE / 2) + (j * Model.FIELD_SELL_SIZE), (Model.FIELD_SELL_SIZE / 2) + (i * Model.FIELD_SELL_SIZE)));
-//                            break;
-//                        case '.':
-//                            homes.add(new Home((Model.FIELD_SELL_SIZE / 2) + (j * Model.FIELD_SELL_SIZE), (Model.FIELD_SELL_SIZE / 2) + (i * Model.FIELD_SELL_SIZE)));
-//                            break;
-//                        case '&':
-//                            boxes.add(new Box((Model.FIELD_SELL_SIZE / 2) + (j * Model.FIELD_SELL_SIZE), (Model.FIELD_SELL_SIZE / 2) + (i * Model.FIELD_SELL_SIZE)));
-//                            break;
-//                        case '@':
-//                            player = new Player((Model.FIELD_SELL_SIZE / 2) + (j * Model.FIELD_SELL_SIZE), (Model.FIELD_SELL_SIZE / 2) + (i * Model.FIELD_SELL_SIZE));
-//                            break;
-//                    }
                     switch (line.charAt(j))
                     {
                         case 'X':
-                            walls.add(new Wall(Model.FIELD_SELL_SIZE + (j * Model.FIELD_SELL_SIZE), Model.FIELD_SELL_SIZE + (i * Model.FIELD_SELL_SIZE)));
+                            walls.add(new Wall((Model.FIELD_SELL_SIZE / 2) + (j * Model.FIELD_SELL_SIZE), (Model.FIELD_SELL_SIZE / 2) + (i * Model.FIELD_SELL_SIZE)));
                             break;
                         case '*':
-                            boxes.add(new Box(Model.FIELD_SELL_SIZE + (j * Model.FIELD_SELL_SIZE), Model.FIELD_SELL_SIZE + (i * Model.FIELD_SELL_SIZE)));
+                            boxes.add(new Box((Model.FIELD_SELL_SIZE / 2) + (j * Model.FIELD_SELL_SIZE), (Model.FIELD_SELL_SIZE / 2) + (i * Model.FIELD_SELL_SIZE)));
                             break;
                         case '.':
-                            homes.add(new Home(Model.FIELD_SELL_SIZE + (j * Model.FIELD_SELL_SIZE), Model.FIELD_SELL_SIZE + (i * Model.FIELD_SELL_SIZE)));
+                            homes.add(new Home((Model.FIELD_SELL_SIZE / 2) + (j * Model.FIELD_SELL_SIZE), (Model.FIELD_SELL_SIZE / 2) + (i * Model.FIELD_SELL_SIZE)));
                             break;
                         case '&':
-                            boxes.add(new Box(Model.FIELD_SELL_SIZE + (j * Model.FIELD_SELL_SIZE), Model.FIELD_SELL_SIZE + (i * Model.FIELD_SELL_SIZE)));
+                            boxes.add(new Box((Model.FIELD_SELL_SIZE / 2) + (j * Model.FIELD_SELL_SIZE), (Model.FIELD_SELL_SIZE / 2) + (i * Model.FIELD_SELL_SIZE)));
+                            homes.add(new Home((Model.FIELD_SELL_SIZE / 2) + (j * Model.FIELD_SELL_SIZE), (Model.FIELD_SELL_SIZE / 2) + (i * Model.FIELD_SELL_SIZE)));
                             break;
                         case '@':
-                            player = new Player(Model.FIELD_SELL_SIZE + (j * Model.FIELD_SELL_SIZE), Model.FIELD_SELL_SIZE + (i * Model.FIELD_SELL_SIZE));
+                            player = new Player((Model.FIELD_SELL_SIZE / 2) + (j * Model.FIELD_SELL_SIZE), (Model.FIELD_SELL_SIZE / 2) + (i * Model.FIELD_SELL_SIZE));
                             break;
                     }
                 }

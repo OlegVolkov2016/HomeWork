@@ -123,11 +123,12 @@ public class Solution {
     }
 
     private void customPrint(DecimalFormat df, double v, int countOperation, int currentCountOperation) {
-        if (countOperation == 0) {
-            System.out.println(df.format(v) + " " + currentCountOperation);
-        } else {
-            System.out.println(String.valueOf(v) + " " + currentCountOperation);
-        }
+        System.out.println(df.format(v) + " " + currentCountOperation);
+//        if (countOperation == 0) {
+//            System.out.println(df.format(v) + " " + currentCountOperation);
+//        } else {
+//            System.out.println(String.valueOf(v) + " " + currentCountOperation);
+//        }
     }
 
     public static void main(String[] args) {

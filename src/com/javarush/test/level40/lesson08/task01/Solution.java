@@ -1,9 +1,6 @@
 package com.javarush.test.level40.lesson08.task01;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.Socket;
 import java.net.URL;
@@ -17,25 +14,27 @@ import java.net.URL;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        getSite(new URL("http://javarush.ru/social.html?lang=uk"));
+        getSite(new URL("http://javarush.ru/social.html"));
     }
 
     public static void getSite(URL url) {
         try {
             Socket clientSocket = new Socket(url.getHost(), url.getDefaultPort());
 
-            String request = url.getQuery();
-            if (request != null)
-            {
-                OutputStream outputStream = clientSocket.getOutputStream();
-                outputStream.write(request.getBytes());
-                outputStream.flush();
-            }
+            String request = "GET " + url.getFile() + " HTTP/1.1\r\n";
+            request += "Accept: text/plain, text/html, text/*\r\n";
+            request += "\r\n";
+            OutputStream outputStream = clientSocket.getOutputStream();
+
+            PrintWriter printWriter = new PrintWriter(outputStream, false);
+            printWriter.print(request);
+            printWriter.flush();
 
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             while (bufferedReader.ready()) {
                 System.out.println(bufferedReader.readLine());
             }
+            outputStream.close();
             bufferedReader.close();
             clientSocket.close();
 
